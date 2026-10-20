@@ -1,46 +1,528 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#102b46">
-<title>Job Scout — Procurement Careers</title>
-<style>
-:root{--navy:#102b46;--blue:#1769aa;--ink:#182635;--muted:#637386;--bg:#f3f6fa;--card:#fff;--line:#e0e7ef;--green:#147d54;--gold:#a76506}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}.hero{background:linear-gradient(135deg,#102b46,#1b5685);color:#fff;padding:24px 18px 26px;border-radius:0 0 24px 24px}.top{max-width:850px;margin:auto}.brand{font-size:13px;letter-spacing:.13em;text-transform:uppercase;opacity:.8;font-weight:800}.hero h1{font-size:29px;line-height:1.12;margin:10px 0}.hero p{margin:0;color:#d9e8f7;line-height:1.45}.wrap{max-width:850px;margin:auto;padding:16px 14px 40px}.searchbox{margin-top:-4px;background:#fff;border:1px solid var(--line);box-shadow:0 7px 24px #132c4410;border-radius:18px;padding:15px}.fieldlabel{display:block;font-size:12px;color:var(--muted);font-weight:750;margin:3px 0 6px}.field{width:100%;padding:13px 12px;border:1px solid #d3dce7;border-radius:11px;background:#fff;color:var(--ink);min-width:0}.fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.wide{grid-column:1/-1}.btn{border:0;border-radius:12px;padding:13px 14px;font-weight:750;cursor:pointer;min-height:46px}.primary{background:var(--blue);color:#fff}.secondary{background:#eaf2fa;color:#154f80;border:1px solid #d4e5f5}.outline{background:#fff;border:1px solid var(--line);color:var(--ink)}.searchbtn{width:100%;margin-top:12px}.hint{font-size:12px;color:var(--muted);line-height:1.45;margin:9px 2px 0}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:22px 2px 10px}.sectionhead h2{font-size:18px;margin:0}.pill{font-size:11px;border-radius:999px;padding:5px 9px;background:#e6f5ed;color:var(--green);font-weight:800;white-space:nowrap}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.source{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;min-height:142px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}.source .emoji{font-size:23px}.source h3{font-size:15px;margin:0}.source p{font-size:12px;color:var(--muted);margin:0;line-height:1.4;flex:1}.source a{font-size:13px;font-weight:800;text-decoration:none;color:var(--blue)}.notice{background:#fff8e9;border:1px solid #f2d9a7;border-radius:14px;padding:13px 14px;font-size:13px;line-height:1.5;color:#704b10;margin-top:16px}.notice strong{display:block;margin-bottom:3px}.toolcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;margin-top:10px}.toolcard h3{font-size:15px;margin:0 0 6px}.toolcard p{font-size:13px;color:var(--muted);line-height:1.45;margin:0 0 11px}.toolrow{display:flex;gap:8px;flex-wrap:wrap}.toolrow .btn{flex:1}.saveditem{padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.saveditem:last-child{border:0}.saveditem button{float:right;min-height:30px;padding:4px 8px;font-size:12px}.foot{font-size:12px;color:var(--muted);line-height:1.5;margin:24px 3px}.small{font-size:12px;color:var(--muted)}.toast{display:none;background:#e6f5ed;color:#126442;padding:10px;border-radius:10px;font-size:13px;margin-top:10px}.tag{font-size:11px;color:#4c5d6e;background:#eef2f6;border-radius:6px;padding:4px 7px;display:inline-block;margin:3px 3px 0 0}
-@media(min-width:650px){.hero{padding:32px 24px}.hero h1{font-size:36px}.wrap{padding:20px 20px 50px}.fields{grid-template-columns:1.4fr 1fr 1fr}.wide{grid-column:auto}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.searchbox{padding:20px}.searchbtn{max-width:220px}}
-</style></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#123b63">
+  <title>Job Scout | Find and Compare Jobs</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f6fa;
+      color: #172b40;
+      line-height: 1.5;
+    }
+
+    header {
+      background: #123b63;
+      color: white;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    header h1 { margin: 0 0 6px; }
+    header p { margin: 0; color: #e0eaf5; }
+
+    main {
+      max-width: 850px;
+      margin: 20px auto;
+      padding: 0 12px 30px;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px #17324d12;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 0 0 12px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 12px 0 6px;
+    }
+
+    input, textarea, select {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bdc9d6;
+      border-radius: 8px;
+      font: inherit;
+      background: white;
+      color: #172b40;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    button, .search-link {
+      display: inline-block;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 8px 5px 0 0;
+      font: inherit;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      background: #1769aa;
+      color: white;
+    }
+
+    button:hover, .search-link:hover {
+      background: #0d4e83;
+    }
+
+    .secondary {
+      background: #e6eef7;
+      color: #123b63;
+    }
+
+    .secondary:hover {
+      background: #d4e2f1;
+    }
+
+    .search-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .search-links .search-link {
+      flex: 1 1 145px;
+    }
+
+    .hint {
+      color: #53677b;
+      font-size: 14px;
+    }
+
+    .result {
+      margin-top: 14px;
+      padding: 14px;
+      background: #eef5fc;
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .meter {
+      height: 14px;
+      background: #dbe4ed;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .meter-fill {
+      height: 100%;
+      width: 0;
+      background: #20845a;
+      transition: width 0.2s;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #dcebe4;
+      color: #155d40;
+      border-radius: 20px;
+      padding: 4px 9px;
+      margin: 4px 3px 0 0;
+      font-size: 13px;
+    }
+
+    .missing {
+      background: #fff0d8;
+      color: #80500a;
+    }
+
+    .saved-item {
+      border-top: 1px solid #dce3eb;
+      padding: 12px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .saved-item:first-child { border-top: none; }
+
+    .small-button {
+      padding: 7px 10px;
+      font-size: 14px;
+    }
+
+    .danger { background: #a72d35; }
+
+    footer {
+      text-align: center;
+      padding: 10px 15px 24px;
+      color: #53677b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 20px 12px; }
+      section { padding: 14px; }
+      h2 { font-size: 18px; }
+      button, .search-link { font-size: 14px; }
+    }
+  </style>
+</head>
+
 <body>
-<header class="hero"><div class="top"><div class="brand">JOB SCOUT · INDIA</div><h1>Your next procurement role starts here.</h1><p>A phone-friendly job search hub for Procurement, Purchase and Sourcing roles.</p></div></header>
-<main class="wrap">
-<section class="searchbox" aria-label="Job search"><div class="fields">
-<div class="wide"><label class="fieldlabel" for="role">Job title</label><input id="role" class="field" value="Procurement Manager" placeholder="e.g. Purchase Manager"></div>
-<div><label class="fieldlabel" for="location">Location</label><input id="location" class="field" value="India" placeholder="City or India"></div>
-<div><label class="fieldlabel" for="freshness">Posted</label><select id="freshness" class="field"><option value="qdr:d">Last 24 hours</option><option value="qdr:w" selected>Last 7 days</option><option value="qdr:m">Last month</option></select></div>
-</div><button class="btn primary searchbtn" onclick="searchAll()">Search jobs ↗</button><p class="hint">Search opens trusted public job-search pages in your browser. Choose the best results and apply on the original website.</p><div id="toast" class="toast" role="status"></div></section>
-<div class="sectionhead"><h2>Search job sources</h2><span class="pill">Free to use</span></div>
-<div class="grid">
-<div class="source"><div class="emoji">🔎</div><h3>Google Jobs</h3><p>Search across multiple job boards and company sites.</p><a href="#" onclick="openSource('google');return false">Search Google Jobs ↗</a></div>
-<div class="source"><div class="emoji">🟦</div><h3>Naukri</h3><p>Find procurement and purchase vacancies in India.</p><a href="#" onclick="openSource('naukri');return false">Search Naukri ↗</a></div>
-<div class="source"><div class="emoji">💼</div><h3>LinkedIn</h3><p>Find job listings and publicly indexed hiring posts.</p><a href="#" onclick="openSource('linkedin');return false">Search LinkedIn ↗</a></div>
-<div class="source"><div class="emoji">🏢</div><h3>Company careers</h3><p>Look for direct openings on employers’ career pages.</p><a href="#" onclick="openSource('company');return false">Search careers ↗</a></div>
-</div>
-<div class="sectionhead"><h2>Useful tools</h2><span class="small">Stored on this device</span></div>
-<section class="toolcard"><h3>⭐ Saved jobs</h3><p>Save a job by pasting its title or link below. Saved entries stay in this browser on this device.</p><label class="fieldlabel" for="saved">Job title or application link</label><input id="saved" class="field" placeholder="Company — Procurement Manager or URL"><button class="btn secondary" style="width:100%;margin-top:9px" onclick="saveJob()">Save job</button><div id="savedList" style="margin-top:8px"></div></section>
-<section class="toolcard"><h3>📝 Resume keyword checker</h3><p>Paste a short part of your resume and a job description to see overlapping keywords. This is a simple local comparison, not an AI-generated match score.</p><label class="fieldlabel" for="resume">Resume text</label><textarea id="resume" class="field" rows="3" placeholder="Procurement, RFQ, vendor negotiation..."></textarea><label class="fieldlabel" for="jd" style="margin-top:10px">Job description</label><textarea id="jd" class="field" rows="3" placeholder="Paste the job requirements here..."></textarea><button class="btn secondary" style="width:100%;margin-top:9px" onclick="compareKeywords()">Compare keywords</button><div id="matchResult" class="small" style="margin-top:10px"></div></section>
-<div class="notice"><strong>Important: what this free version does</strong>This is a mobile-friendly search hub, not a live job aggregator. It opens searches on public job sites; it does not automatically collect listings, generate verified match scores, or email a daily report. Those automated features require a connected backend, scheduled service and email provider. No account password is requested here.</div>
-<div class="sectionhead"><h2>Quick search ideas</h2></div><div><button class="btn outline" onclick="quick('Procurement Manager')">Procurement Manager</button> <button class="btn outline" onclick="quick('Purchase Manager')">Purchase Manager</button> <button class="btn outline" onclick="quick('Strategic Sourcing Manager')">Sourcing Manager</button></div>
-<footer class="foot">Job Scout is an independent helper and is not affiliated with LinkedIn, Naukri or Google. Search results, posting dates and job availability must be checked on the original source. Never pay a recruiter for a job offer, and review each listing before sharing personal information.</footer>
-</main>
-<script>
-const $=id=>document.getElementById(id);
-function query(){return ($('role').value.trim()||'Procurement Manager')+' jobs '+($('location').value.trim()||'India')}
-function openSource(source){const q=encodeURIComponent(query());const fresh=$('freshness').value;let url='';if(source==='google')url='https://www.google.com/search?q='+q+'&ibp=htl;jobs&tbs='+fresh;if(source==='naukri')url='https://www.google.com/search?q=site%3Anaukri.com%2Fjob-listings+ '+q+'&tbs='+fresh;if(source==='linkedin')url='https://www.google.com/search?q=site%3Alinkedin.com%2Fjobs+OR+site%3Alinkedin.com%2Fposts+ '+q+'&tbs='+fresh;if(source==='company')url='https://www.google.com/search?q='+encodeURIComponent(query()+' careers jobs')+'&tbs='+fresh;window.open(url,'_blank','noopener');}
-function searchAll(){['google','naukri','linkedin','company'].forEach((s,i)=>setTimeout(()=>openSource(s),i*250));$('toast').style.display='block';$('toast').textContent='Opening job searches. If your browser blocks pop-ups, tap each source card instead.'}
-function quick(v){$('role').value=v;window.scrollTo({top:0,behavior:'smooth'})}
-function getSaved(){try{return JSON.parse(localStorage.getItem('jobScoutSaved')||'[]')}catch(e){return []}}
-function saveJob(){const v=$('saved').value.trim();if(!v)return;const arr=getSaved();arr.unshift({text:v,date:new Date().toLocaleDateString()});localStorage.setItem('jobScoutSaved',JSON.stringify(arr.slice(0,100)));$('saved').value='';renderSaved()}
-function removeJob(i){const arr=getSaved();arr.splice(i,1);localStorage.setItem('jobScoutSaved',JSON.stringify(arr));renderSaved()}
-function renderSaved(){const arr=getSaved();$('savedList').innerHTML=arr.length?arr.map((x,i)=>'<div class="saveditem">'+esc(x.text)+'<div class="small">Saved '+esc(x.date)+'</div><button class="btn outline" onclick="removeJob('+i+')">Remove</button></div>').join(''):'<div class="small">No saved jobs yet.</div>'}
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-const stop=new Set(('the and for with from that this your you are our will have has job jobs role manager senior lead experience knowledge skills ability strong team responsible responsibilities including required preferred working using across into over under between').split(' '));
-function compareKeywords(){const a=$('resume').value.toLowerCase().match(/[a-z][a-z0-9+#.-]{2,}/g)||[];const b=$('jd').value.toLowerCase().match(/[a-z][a-z0-9+#.-]{2,}/g)||[];const aset=new Set(a.filter(w=>!stop.has(w))),bset=[...new Set(b.filter(w=>!stop.has(w)))];const hit=bset.filter(w=>aset.has(w));if(!a.length||!b.length){$('matchResult').textContent='Paste both your resume text and the job description first.';return}const pct=Math.round(hit.length/Math.max(bset.length,1)*100);$('matchResult').innerHTML='<strong>Keyword overlap: '+pct+'%</strong><br>Matched terms: '+(hit.length?hit.map(esc).join(', '):'No exact keyword overlap found')+'<br><span class="small">This is a basic exact-word comparison; it is not a hiring prediction.</span>'}
-renderSaved();
-</script></body></html>
+  <header>
+    <h1>🔎 Job Scout</h1>
+    <p>Find opportunities. Compare your resume. Track applications.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Find Jobs</h2>
+
+      <label for="role">Target job title</label>
+      <input id="role" placeholder="e.g. Procurement Manager">
+
+      <label for="location">Preferred location</label>
+      <input id="location" placeholder="e.g. Punjab, India or Remote">
+
+      <label for="experience">Experience level (optional)</label>
+      <select id="experience">
+        <option value="">Any experience level</option>
+        <option>Entry level</option>
+        <option>Mid-Senior level</option>
+        <option>Director</option>
+      </select>
+
+      <div class="search-links">
+        <a class="search-link" href="#" onclick="searchJobs('google'); return false;">
+          Google Jobs
+        </a>
+        <a class="search-link" href="#" onclick="searchJobs('naukri'); return false;">
+          Naukri
+        </a>
+        <a class="search-link" href="#" onclick="searchJobs('linkedin'); return false;">
+          LinkedIn
+        </a>
+        <a class="search-link" href="#" onclick="searchJobs('company'); return false;">
+          Company Careers
+        </a>
+      </div>
+
+      <p class="hint">
+        These buttons open external job-search pages. Job Scout does not
+        automatically import or verify job listings.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Enter Your Resume</h2>
+
+      <label for="resume">Paste your resume text here</label>
+      <textarea id="resume"
+        placeholder="Paste your resume text, including skills, experience, qualifications and achievements..."></textarea>
+
+      <button class="secondary" onclick="clearResume()">
+        Clear Resume
+      </button>
+
+      <p class="hint">
+        For privacy, the resume is not uploaded to a server by this page.
+        It is used locally for the comparison below.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Compare Resume With Job Description</h2>
+
+      <label for="jobDescription">Paste the complete job description</label>
+      <textarea id="jobDescription"
+        placeholder="Paste the job responsibilities, required skills, qualifications and experience..."></textarea>
+
+      <button onclick="compareResume()">Compare Now</button>
+      <button class="secondary" onclick="clearComparison()">Clear Comparison</button>
+
+      <div id="comparisonResult" class="result" hidden aria-live="polite"></div>
+    </section>
+
+    <section>
+      <h2>4. Save a Job</h2>
+
+      <label for="savedTitle">Job title</label>
+      <input id="savedTitle" placeholder="e.g. Procurement Manager">
+
+      <label for="savedCompany">Company</label>
+      <input id="savedCompany" placeholder="Company name">
+
+      <label for="savedLink">Job link (optional)</label>
+      <input id="savedLink" type="url" placeholder="https://...">
+
+      <label for="savedNotes">Notes and next steps</label>
+      <textarea id="savedNotes"
+        placeholder="Application date, contact person, follow-up date, salary..."></textarea>
+
+      <button onclick="saveJob()">Save Job</button>
+      <p id="saveMessage" class="hint" aria-live="polite"></p>
+    </section>
+
+    <section>
+      <h2>5. My Saved Jobs</h2>
+      <div id="savedJobs"></div>
+      <button class="secondary" onclick="exportJobs()">Export Saved Jobs</button>
+    </section>
+  </main>
+
+  <footer>
+    Job Scout is a browser-based helper. Check each employer's official
+    website before sharing personal information or applying.
+  </footer>
+
+  <script>
+    function searchJobs(source) {
+      const role = document.getElementById("role").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const experience = document.getElementById("experience").value;
+
+      if (!role) {
+        alert("Please enter your target job title first.");
+        document.getElementById("role").focus();
+        return;
+      }
+
+      let query = role;
+      if (location) query += " " + location;
+      if (experience) query += " " + experience;
+      query += " jobs";
+
+      const encoded = encodeURIComponent(query);
+      let url = "";
+
+      if (source === "google") {
+        url = "https://www.google.com/search?q=" +
+          encodeURIComponent(query) + "&ibp=htl;jobs";
+      } else if (source === "naukri") {
+        url = "https://www.google.com/search?q=" +
+          encodeURIComponent("site:naukri.com " + query);
+      } else if (source === "linkedin") {
+        url = "https://www.google.com/search?q=" +
+          encodeURIComponent("site:linkedin.com/jobs " + query);
+      } else if (source === "company") {
+        url = "https://www.google.com/search?q=" +
+          encodeURIComponent(query + " official company careers");
+      }
+
+      if (url) window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    const stopWords = new Set([
+      "the","and","for","with","from","that","this","are","was","were",
+      "will","have","has","had","you","your","our","their","they","them",
+      "who","what","when","where","how","why","all","any","can","may",
+      "not","but","use","using","used","into","within","across","also",
+      "such","other","more","most","very","good","well","strong","work",
+      "working","years","year","role","job","team","teams","ability",
+      "required","preferred","requirements","responsibilities","including",
+      "experience","skills","skill","knowledge","candidate","position",
+      "must","should","would","etc","per","each","based","ensure",
+      "support","provide","manage","responsible","responsibility"
+    ]);
+
+    function tokenize(text) {
+      const words = text.toLowerCase().match(/[a-z][a-z+#.-]{1,}/g) || [];
+      return new Set(
+        words
+          .map(word => word.replace(/^[.-]+|[.-]+$/g, ""))
+          .filter(word => word.length > 2 && !stopWords.has(word))
+      );
+    }
+
+    function compareResume() {
+      const resume = document.getElementById("resume").value.trim();
+      const description = document.getElementById("jobDescription").value.trim();
+      const output = document.getElementById("comparisonResult");
+
+      if (!resume || !description) {
+        alert("Please paste both your resume and the job description.");
+        return;
+      }
+
+      const resumeWords = tokenize(resume);
+      const jobWords = tokenize(description);
+
+      const matched = [...jobWords].filter(word => resumeWords.has(word)).sort();
+      const missing = [...jobWords].filter(word => !resumeWords.has(word)).sort();
+
+      const score = jobWords.size
+        ? Math.round((matched.length / jobWords.size) * 100)
+        : 0;
+
+      function tags(words, className) {
+        if (!words.length) return "<p>None identified.</p>";
+        return words.map(word =>
+          '<span class="tag ' + className + '">' + escapeHTML(word) + '</span>'
+        ).join("");
+      }
+
+      output.innerHTML =
+        "<h3>Keyword comparison result</h3>" +
+        "<p><strong>Keyword overlap: " + score + "%</strong></p>" +
+        '<div class="meter"><div class="meter-fill" style="width:' +
+        score + '%"></div></div>' +
+        "<p>Job-description keywords identified: " + jobWords.size + "</p>" +
+        "<p>Matching keywords: " + matched.length + "</p>" +
+        "<h4>Keywords found in your resume</h4>" +
+        tags(matched, "") +
+        "<h4>Keywords not found in your resume</h4>" +
+        tags(missing, "missing") +
+        "<p class='hint'><strong>How to interpret this:</strong> This is a basic " +
+        "keyword-overlap estimate, not an AI assessment or a probability of " +
+        "getting shortlisted. It does not understand context, seniority, or " +
+        "whether your experience genuinely meets a requirement. Review missing " +
+        "keywords and add them only where they truthfully reflect your experience.</p>";
+
+      output.hidden = false;
+      output.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function clearResume() {
+      document.getElementById("resume").value = "";
+    }
+
+    function clearComparison() {
+      document.getElementById("jobDescription").value = "";
+      const output = document.getElementById("comparisonResult");
+      output.innerHTML = "";
+      output.hidden = true;
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function getSavedJobs() {
+      try {
+        return JSON.parse(localStorage.getItem("jobScoutSavedJobs") || "[]");
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function saveJob() {
+      const title = document.getElementById("savedTitle").value.trim();
+      const company = document.getElementById("savedCompany").value.trim();
+      const link = document.getElementById("savedLink").value.trim();
+      const notes = document.getElementById("savedNotes").value.trim();
+      const message = document.getElementById("saveMessage");
+
+      if (!title) {
+        alert("Please enter a job title.");
+        return;
+      }
+
+      if (link) {
+        try {
+          const parsed = new URL(link);
+          if (!["http:", "https:"].includes(parsed.protocol)) {
+            throw new Error("Invalid URL");
+          }
+        } catch (error) {
+          alert("Please enter a valid job URL beginning with https:// or http://");
+          return;
+        }
+      }
+
+      const jobs = getSavedJobs();
+      jobs.unshift({
+        id: Date.now().toString() + Math.random().toString(16).slice(2),
+        title,
+        company,
+        link,
+        notes,
+        date: new Date().toLocaleDateString()
+      });
+
+      try {
+        localStorage.setItem("jobScoutSavedJobs", JSON.stringify(jobs));
+        document.getElementById("savedTitle").value = "";
+        document.getElementById("savedCompany").value = "";
+        document.getElementById("savedLink").value = "";
+        document.getElementById("savedNotes").value = "";
+        message.textContent = "Job saved in this browser.";
+        renderSavedJobs();
+      } catch (error) {
+        message.textContent = "Could not save. Your browser storage may be full or disabled.";
+      }
+    }
+
+    function renderSavedJobs() {
+      const container = document.getElementById("savedJobs");
+      const jobs = getSavedJobs();
+
+      if (!jobs.length) {
+        container.innerHTML = "<p class='hint'>No saved jobs yet.</p>";
+        return;
+      }
+
+      container.innerHTML = jobs.map(job => {
+        const link = job.link
+          ? '<p><a href="' + escapeHTML(job.link) +
+            '" target="_blank" rel="noopener noreferrer">Open job listing</a></p>'
+          : "";
+
+        return '<div class="saved-item">' +
+          "<strong>" + escapeHTML(job.title) + "</strong>" +
+          (job.company ? "<p>" + escapeHTML(job.company) + "</p>" : "") +
+          "<p class='hint'>Saved: " + escapeHTML(job.date || "") + "</p>" +
+          link +
+          (job.notes ? "<p>" + escapeHTML(job.notes).replace(/\n/g, "<br>") + "</p>" : "") +
+          '<button class="small-button danger" onclick="deleteJob(\'' +
+          escapeHTML(job.id) + '\')">Delete</button>' +
+          "</div>";
+      }).join("");
+    }
+
+    function deleteJob(id) {
+      const jobs = getSavedJobs().filter(job => job.id !== id);
+      localStorage.setItem("jobScoutSavedJobs", JSON.stringify(jobs));
+      renderSavedJobs();
+    }
+
+    function exportJobs() {
+      const jobs = getSavedJobs();
+
+      if (!jobs.length) {
+        alert("There are no saved jobs to export.");
+        return;
+      }
+
+      const data = JSON.stringify(jobs, null, 2);
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "job-scout-saved-jobs.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    renderSavedJobs();
+  </script>
+</body>
+</html>
