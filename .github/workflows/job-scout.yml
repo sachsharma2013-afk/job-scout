@@ -22,5 +22,8 @@ jobs:
           python-version: "3.12"
 
       - name: Run job search
+      env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: python job_scout.py
+        
 
