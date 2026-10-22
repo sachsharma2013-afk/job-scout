@@ -1,0 +1,21 @@
+{
+  "generated_at": null,
+  "count": 0,
+  "sources_attempted": [
+    "linkedin",
+    "indeed",
+    "naukri"
+  ],
+  "locations_attempted": [
+    "India",
+    "Punjab"
+  ],
+  "roles_searched": [
+    "Procurement Manager",
+    "Purchase Manager",
+    "Sourcing Manager"
+  ],
+  "lookback_hours": 168,
+  "disclaimer": "Starter file. Run the GitHub Actions workflow to collect real listings.",
+  "jobs": []
+}
