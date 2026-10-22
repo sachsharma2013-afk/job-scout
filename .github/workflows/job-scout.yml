@@ -12,6 +12,7 @@ permissions:
 jobs:
   search-jobs:
     runs-on: ubuntu-latest
+
     steps:
       - name: Get repository files
         uses: actions/checkout@v4
@@ -22,8 +23,6 @@ jobs:
           python-version: "3.12"
 
       - name: Run job search
-      env:
+        env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: python job_scout.py
-        
-
